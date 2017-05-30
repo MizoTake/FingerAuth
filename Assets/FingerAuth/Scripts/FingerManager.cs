@@ -26,12 +26,8 @@ namespace FingerAuth {
 			
 		}
 		public void FingerAuthStart() {
-			using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer")) {
-				using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity")) {
-					using (AndroidJavaClass plugin = new AndroidJavaClass(JAVA_CLASS_NAME)) {
-						plugin.CallStatic("AuthStart", activity);
-					}
-				}
+			using (AndroidJavaClass plugin = new AndroidJavaClass(JAVA_CLASS_NAME)) {
+				plugin.CallStatic("AuthStart");
 			}
 		}
 
